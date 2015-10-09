@@ -1,0 +1,13 @@
+<h2>Welcome, <%# USER'S NAME %>!</h2>
+
+<!-- IF USER IS A TEACHER, DISPLAY THE FOLLOWING -->
+if session[:user_type] == "Teacher"
+<!-- LIST TEACHERS AND THEIR ASSOCIATED STUDENTS -->
+
+<!-- IF USER IS A PARENT, DISPLAY THE FOLLOWING -->
+if session[:user_type]  == "Parent"
+<!-- LIST PARENTS AND THEIR ASSOCIATED STUDENTS -->
+
+<!-- IF USER IS A STUDENT, DISPLAY THE FOLLOWING -->
+if session[:user_type]  == "Student"
+<!-- LIST STUDENTS AND THEIR ASSOCIATED GRADES -->
