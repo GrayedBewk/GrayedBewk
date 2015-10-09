@@ -3,6 +3,7 @@ class SessionController < ApplicationController
   end
 
   def create
+    teacher = Teacher.create()
   end
 
   def destroy
