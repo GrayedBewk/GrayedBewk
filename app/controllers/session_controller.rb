@@ -3,14 +3,21 @@ class SessionController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-  if user && user.authenticate(params[:session][:password])
-    # Log the user in and redirect to the user's show page.
-  else
-     flash[:danger] = 'Invalid email/password combination' # Not quite right!
-     render 'new'
+    # Log the techer in and redirect to the teacher's show page.
+    t = Teacher.find_by(email: params[:session][:email])
+    s = Student.find_by(email: params[:session][:email])
+    p = Parent.find_by(email: params[:session][:email])
+    if t && t.authenticate(params[:session][:password])
+      redirect_to teachers_path, notice: "You have been successfully logged in."
+    elsif s && s.authenticate(params[:session][:password])
+      redirect_to students_path, notice: "You have been successfully logged in."
+    elsif p && p.authenticate(params[:session][:password])
+      redirect_to parents_path, notice: "You have been successfully logged in."
+    else
+      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      render 'new'
+    end
   end
-end
 
   def index
   end
