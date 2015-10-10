@@ -10,9 +10,9 @@ class SessionController < ApplicationController
     if t && t.authenticate(params[:session][:password])
       redirect_to teachers_path, notice: "You have been successfully logged in."
     elsif s && s.authenticate(params[:session][:password])
-      redirect_to students_path, notice: "You have been successfully logged in."
+      redirect_to grades_path, notice: "You have been successfully logged in."
     elsif p && p.authenticate(params[:session][:password])
-      redirect_to parents_path, notice: "You have been successfully logged in."
+      redirect_to grades_path, notice: "You have been successfully logged in."
     else
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
