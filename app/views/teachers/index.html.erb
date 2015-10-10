@@ -1,31 +1,25 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Teachers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Password digest</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.email %></td>
-        <td><%= teacher.password %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Teacher', new_teacher_path %>
+<% @teachers.each do |t| %>
+  <div id="teacher">
+    <h1><%= t.name %></h1>
+    <%= link_to 'Add teacher', new_teacher_path() %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>E-mail</th>
+          <th>Grade</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% t.students.each do |s| %>
+          <tr id="student">
+            <td><%= s.name %></td>
+            <td><%= s.email %></td>
+            <td><%= link_to 'See grades', student_path(s.id) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

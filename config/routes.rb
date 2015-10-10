@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-  root   'session#index'                # Dashboard view that displays information based on user type
-  get    'login' => 'session#new'       # Login screen for logged out or new users.  Root redirects here if user is not logged in.
-  post   'login' => 'session#create'    # Create new user screen.  Only accessible from teacher dashboard.  From login screen a user can only choose parent or student.
-  delete 'logout' => 'session#destroy'  # Action to logout and present login screen.
+  root   'sessions#index'                # Dashboard view that displays information based on user type
+  get    'login' => 'sessions#new'       # Login screen for logged out or new users.  Root redirects here if user is not logged in.
+  post   'login' => 'sessions#create'    # Create new user screen.  Only accessible from teacher dashboard.  From login screen a user can only choose parent or student.
+  delete 'logout' => 'sessions#destroy'  # Action to logout and present login screen.
 
   resources :grades
   resources :parents
   resources :students
   resources :teachers
-  resources :sessions
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
