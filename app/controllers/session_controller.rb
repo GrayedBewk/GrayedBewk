@@ -26,8 +26,7 @@ class SessionController < ApplicationController
       session[:parent_id] = t.id
       redirect_to parents_path, notice: "You have been successfully logged in."
     else
-      flash[:danger] = 'Invalid email/password combination' # Not quite right!
-      render 'new'
+      redirect_to 
     end
   end
 
