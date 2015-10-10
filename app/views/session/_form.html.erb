@@ -1,0 +1,43 @@
+<h1>Teacher Login</h1>
+
+<%= provide(:title, "Log in")%>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag(sessions_login_path) do  %>
+
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+
+      <%= submit_tag "Log in" %>
+    <% end %>
+
+    <!-- <p>New teacher? <%= link_to "Sign up now!", new_teacher_path %></p> -->
+  </div>
+</div>
+
+<h1>Student Login</h1>
+
+<%= provide(:title, "Log in")%>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_tag(sessions_login_path) do  %>
+
+      <%= label_tag :email %>
+      <%= email_field_tag :email %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+
+      <%= submit_tag "Log in" %>
+    <% end %>
+
+    <!-- <p>New teacher? <%= link_to "Sign up now!", new_teacher_path %></p> -->
+  </div>
+</div>
