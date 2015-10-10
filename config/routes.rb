@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-
-root 'session#index'
-get  'login' => 'session#new'
-post 'login' => 'session#create'
-delete 'logout' => 'session#destroy'
-
+  root   'session#index'                # Dashboard view that displays information based on user type
+  get    'login' => 'session#new'       # Login screen for logged out or new users.  Root redirects here if user is not logged in.
+  post   'login' => 'session#create'    # Create new user screen.  Only accessible from teacher dashboard.  From login screen a user can only choose parent or student.
+  delete 'logout' => 'session#destroy'  # Action to logout and present login screen.
 
   resources :grades
   resources :parents

@@ -1,3 +1,6 @@
 class Parent < ActiveRecord::Base
-  has_one :student 
+  has_secure_password
+  validates :name, :email, :password, presence: true
+  validates :email, uniqueness: true
+  has_one :student
 end

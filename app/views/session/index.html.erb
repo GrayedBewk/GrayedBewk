@@ -1,19 +1,88 @@
-<% provide(:title, "Log in") %>
-<h1>Log in</h1>
+<h2>Welcome, <%= session[:name] %>!</h2>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+<!-- IF USER IS A TEACHER, DISPLAY THE FOLLOWING -->
+<% if session[:user_type] == "Teacher" %>
+  <% @teachers.each do |t| %>
+    <div id="teacher">
+      <h1><%= t.name %></h1>
+      <%= link_to 'Add teacher', new_teacher_path(:teacher_id => teacher.id) %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th>Grade</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% teacher.students.each do |s| %>
+            <tr id="student">
+              <td><%= s.name %></td>
+              <td><%= s.email %></td>
+              <td><%= link_to 'See grades', s %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+<!-- IF USER IS A PARENT, DISPLAY THE FOLLOWING -->
+<% elsif session[:user_type]  == "Parent" %>
+  <% @parents.each do |p| %>
+    <div id="parent">
+      <h1><%= p.name %></h1>
+      <%= link_to 'Add parent', new_parent_path(:parent_id => parent.id) %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th></th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% parent.students.each do |s| %>
+            <tr id="student">
+              <td><%= p.name %></td>
+              <td><%= p.email %></td>
+              <td><%= link_to 'See grades', s %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+<!-- LIST PARENTS AND THEIR ASSOCIATED STUDENTS -->
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", login_path %></p>
-  </div>
-</div>
+<!-- IF USER IS A STUDENT, DISPLAY THE FOLLOWING -->
+<% elsif session[:user_type]  == "Student" %>
+  <% @students.each do |s| %>
+    <div id="student">
+      <h1><%= t.name %></h1>
+      <%= link_to 'Add teacher', new_teacher_path(:student_id => student.id) %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>E-mail</th>
+            <th>Grade</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% student.grades.each do |s| %>
+            <tr id="grades">
+              <td><%= s.name %></td>
+              <td><%= s.email %></td>
+              <td><%= link_to 'See grades', s %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+<% end %>
+<%# LIST STUDENTS AND THEIR ASSOCIATED GRADES %>

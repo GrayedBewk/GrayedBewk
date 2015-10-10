@@ -1,5 +1,8 @@
 class Student < ActiveRecord::Base
-  has_one :teacher
+  has_secure_password
+  validates :name, :email, :password, presence: true
+  validates :email, uniqueness: true
   has_many :parents
   has_many :grades
+  belongs_to :teacher
 end
