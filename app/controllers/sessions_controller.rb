@@ -69,6 +69,11 @@ class SessionsController < ApplicationController
   # end
 
   def destroy
+    session[:login] = false
+    session[:name] = nil
+    session[:user_type] = nil
+    session[:user_id] = nil
+    redirect_to root_path, notice: "You have successfully logged out"
   end
 
   def index
