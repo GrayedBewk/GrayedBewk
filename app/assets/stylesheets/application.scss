@@ -1,0 +1,67 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+ body{
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+   }
+
+  nav {
+     background-color: #333;
+     margin: 0;
+     padding: 0;
+     overflow: hidden;
+   }
+
+ nav ul{
+     margin: 0;
+     padding: 0;
+   }
+
+ nav ul li {
+     /* This allow us to arrange list items in a row, without using float */
+     display: inline-block;
+     list-style-type: none;
+     float: right;
+     font-size: 16px;
+   }
+
+ /* Create a style for the first level items */
+ nav > ul > li > a {
+   color: #aaa;
+   background-color:#333;
+   display: block;
+   line-height: 2em;
+   margin-right: 5px;
+   padding: 0.5em 0.5em;
+   font-family: "Helvetica Neue";
+   text-decoration: none;
+   }
+
+ .nav-title {
+   display: inline-block;
+   float: left;
+   color: #aaa;
+   margin: 10px 5px 10px 10px;
+   padding: 10 0 10 0px;
+   text-decoration: none;
+   font-family: Lato;
+   font-size: 30px;
+ }

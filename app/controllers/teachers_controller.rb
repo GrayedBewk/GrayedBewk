@@ -48,6 +48,7 @@ class TeachersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @teacher.errors, status: :unprocessable_entity }
       end
+       @teacher.update_with_password(teacher_params)
     end
   end
 
