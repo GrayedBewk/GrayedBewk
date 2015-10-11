@@ -48,6 +48,7 @@ class TeachersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @teacher.errors, status: :unprocessable_entity }
       end
+       @teacher.update_with_password(teacher_params)
     end
   end
 
@@ -69,6 +70,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:name, :email, :password_digest)
+      params.require(:teacher).permit(:name, :email, :password)
     end
 end
