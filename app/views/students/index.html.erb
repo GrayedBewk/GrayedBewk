@@ -1,3 +1,4 @@
+<%= link_to 'LOGOUT', logout_path, method: :delete %>
 <% @students.each do |s| %>
   <div id="student">
     <h1><%= s.name %></h1>
@@ -27,4 +28,7 @@
       </tbody>
     </table>
   </div>
+  <% if session[:user_type] == "Teacher" %>
+    <%= link_to 'Back to Teachers', teachers_path %>
+  <% end %>
 <% end %>
