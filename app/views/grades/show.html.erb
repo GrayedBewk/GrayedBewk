@@ -25,5 +25,11 @@
   <%= @grade.grade %>
 </p>
 
-<%= link_to 'Edit', edit_grade_path(@grade) %> |
-<%= link_to 'Back', students_path %>
+<%= link_to 'Edit', edit_grade_path(@grade) %>
+<% if session[:user_type] == "Teacher" %>
+  <%= link_to 'Back to Dashboard', teachers_path %>
+<% elsif session[:user_type] == "Parent" %>
+  <%= link_to 'Back to Dashboard', parents_path %>
+<% elsif session[:user_type] == "Student" %>
+  <%= link_to 'Back to Dashboard', students_path %>
+<% end %>
