@@ -5,4 +5,5 @@ class Student < ActiveRecord::Base
   has_many :parents
   has_many :grades
   belongs_to :teacher
+  accepts_nested_attributes_for :parents, :grades, :teacher
 end
