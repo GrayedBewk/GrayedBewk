@@ -1,7 +1,9 @@
 <% @parents.each do |p| %>
   <div id="parent">
     <h1><%= p.name %></h1>
+    <% if session[:user_type] == "Teacher" %>
     <%= link_to 'Add parent', new_parent_path %>
+    <% end %>
     <table>
       <thead>
         <tr>
