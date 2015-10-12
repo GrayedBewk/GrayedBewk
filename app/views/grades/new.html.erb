@@ -2,4 +2,10 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Back', grades_path %>
+<% if session[:user_type] == "Teacher" %>
+  <%= link_to 'Back to Dashboard', teachers_path %>
+<% elsif session[:user_type] == "Parent" %>
+  <%= link_to 'Back to Dashboard', parents_path %>
+<% elsif session[:user_type] == "Student" %>
+  <%= link_to 'Back to Dashboard', students_path %>
+<% end %>

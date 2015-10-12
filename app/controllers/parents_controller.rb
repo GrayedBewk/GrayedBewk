@@ -42,7 +42,6 @@ class ParentsController < ApplicationController
   def destroy
     @parent.destroy
     redirect_to parents_url, notice: 'Parent was successfully destroyed.'
-    end
   end
 
   private

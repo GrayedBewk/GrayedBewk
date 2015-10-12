@@ -1,7 +1,7 @@
 <% @parents.each do |p| %>
   <div id="parent">
     <h1><%= p.name %></h1>
-    <%= link_to 'Add parent', new_parent_path(:parent_id => parent.id) %>
+    <%= link_to 'Add parent', new_parent_path %>
     <table>
       <thead>
         <tr>
@@ -12,13 +12,11 @@
         </tr>
       </thead>
       <tbody>
-        <% p.students.each do |s| %>
           <tr id="student">
             <td><%= p.name %></td>
             <td><%= p.email %></td>
-            <td><%= link_to 'See grades', s %></td>
+            <td><%= link_to 'See grades', p %></td>
           </tr>
-        <% end %>
       </tbody>
     </table>
   </div>
