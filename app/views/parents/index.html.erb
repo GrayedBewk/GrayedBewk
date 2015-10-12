@@ -16,9 +16,9 @@
       <tbody>
 
         <% p.students.each do |s| %>
-          <tr id="parent">
-            <td><%= p.name %></td>
-            <td><%= p.email %></td>
+          <tr id="students">
+            <td><%= s.name %></td>
+            <td><%= s.email %></td>
             <td><%= link_to 'See grades', s %></td>
             <%= link_to "Change your password", edit_parent_path(session[:user_id]) %>
 
@@ -26,4 +26,5 @@
       </tbody>
     </table>
   </div>
+<% end %>
 <% end %>

@@ -9,6 +9,10 @@ This is the index.html.erb page
   <%= password_field_tag :password %>
 
   <%= submit_tag "Log in" %>
+   <p>New Teacher? <%= link_to "Sign up now!", new_teacher_path %></p>
+    <p>New Student? <%= link_to "Sign up now!", new_student_path %></p>
+    <p>New Parent? <%= link_to "Sign up now!", new_parent_path %></p>
+
 <% end %>
 
 <!-- <p>New teacher? <%= link_to "Sign up now!", new_teacher_path %></p> -->
