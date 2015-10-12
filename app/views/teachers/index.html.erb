@@ -1,6 +1,29 @@
-<<<<<<< HEAD
-<p id="notice"><%= notice %></p>
+<% @teachers.each do |t| %>
+  <div id="teacher">
+    <h1><%= t.name %></h1>
+    <table>
+      <thead>
+        <tr>
+         <th>Name</th>
+         <th>E-mail</th>
+         <th colspan=3>Options</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% t.students.each do |s| %>
+          <tr id="student">
+            <td><%= s.name %></td>
+            <td><%= s.email %></td>
+            <td><%= link_to 'See grades', student_path(s.id) %></td>
+                <% %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
 
+<<<<<<< HEAD
 <h1>Listing Teachers</h1>
 
 
@@ -30,8 +53,9 @@
 
 <br>
 
-<%= link_to 'New Teacher', new_teacher_path %>
-<%= link_to 'New Student', new_student_path %>
-<%= link_to 'New Parent', new_parent_path %>
-<%= link_to 'New Student Grade', new_grade_path %>
-<%= link_to "Change your password", edit_teacher_path(session[:user_id]) %>
+<ul>
+<li><%= link_to 'Add teacher', new_teacher_path() %></li>
+<li><%= link_to 'Add parent', new_parent_path() %></li>
+<li><%= link_to 'Add student', new_student_path() %></li>
+<li><%= link_to "Change your password", edit_teacher_path(session[:user_id]) %></li>
+</ul>

@@ -15,5 +15,11 @@
   <%= @teacher.password %>
 </p>
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<%= link_to 'Edit', edit_teacher_path(@teacher) %>
+<% if session[:user_type] == "Teacher" %>
+  <%= link_to 'Back to Dashboard', teachers_path %>
+<% elsif session[:user_type] == "Parent" %>
+  <%= link_to 'Back to Dashboard', parents_path %>
+<% elsif session[:user_type] == "Student" %>
+  <%= link_to 'Back to Dashboard', students_path %>
+<% end %>

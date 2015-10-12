@@ -28,9 +28,12 @@
       </tbody>
     </table>
   </div>
-
-    <% end %>
-    <% if session[:user_type] == "Student" %>
-      <%= link_to 'Back to Teachers', teachers_path %>
-      <%= link_to "Change your password", edit_student_path(session[:user_id]) %>
-      <% end %>
+<% end %>
+<% if session[:user_type] == "Teacher" %>
+  <%= link_to 'Back to Dashboard', teachers_path %>
+<% elsif session[:user_type] == "Parent" %>
+  <%= link_to 'Back to Dashboard', parents_path %>
+<% elsif session[:user_type] == "Student" %>
+  <%= link_to 'Back to Dashboard', students_path %>
+<% end %>
+<%= link_to "Change your password", edit_student_path(session[:user_id]) %>

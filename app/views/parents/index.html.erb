@@ -1,7 +1,9 @@
 <% @parents.each do |p| %>
   <div id="parent">
     <h1><%= p.name %></h1>
-    <%= link_to 'Add parent', new_parent_path(:parent_id => parent.id) %>
+    <% if session[:user_type] == "Teacher" %>
+    <%= link_to 'Add parent', new_parent_path %>
+    <% end %>
     <table>
       <thead>
         <tr>
@@ -12,6 +14,7 @@
         </tr>
       </thead>
       <tbody>
+
         <% p.students.each do |s| %>
           <tr id="parent">
             <td><%= p.name %></td>
@@ -20,7 +23,6 @@
             <%= link_to "Change your password", edit_parent_path(session[:user_id]) %>
 
           </tr>
-        <% end %>
       </tbody>
     </table>
   </div>
