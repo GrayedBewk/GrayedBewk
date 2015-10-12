@@ -4,6 +4,7 @@ class ParentsController < ApplicationController
   # GET /parents
   def index
     @parents = Parent.all
+    @parent = Parent.find(session[:user_id])
   end
 
   # GET /parents/1
@@ -42,7 +43,6 @@ class ParentsController < ApplicationController
   def destroy
     @parent.destroy
     redirect_to parents_url, notice: 'Parent was successfully destroyed.'
-    end
   end
 
   private

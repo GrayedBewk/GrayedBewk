@@ -23,13 +23,14 @@
             <td><%= g.student_id %></td>
             <td><%= g.date %></td>
             <td><%= g.grade %></td>
-            <td><%= link_to 'Edit', edit_grade_path(g.id) %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
-  <% if session[:user_type] == "Teacher" %>
-    <%= link_to 'Back to Teachers', teachers_path %>
-  <% end %>
-<% end %>
+
+    <% end %>
+    <% if session[:user_type] == "Student" %>
+      <%= link_to 'Back to Teachers', teachers_path %>
+      <%= link_to "Change your password", edit_student_path(session[:user_id]) %>
+      <% end %>

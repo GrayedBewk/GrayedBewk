@@ -1,10 +1,11 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-  
+
 
   # GET /students
   def index
     @students = Student.all
+     @student = Student.find(session[:user_id])
   end
 
   # GET /students/1

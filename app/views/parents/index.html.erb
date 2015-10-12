@@ -13,10 +13,12 @@
       </thead>
       <tbody>
         <% p.students.each do |s| %>
-          <tr id="student">
+          <tr id="parent">
             <td><%= p.name %></td>
             <td><%= p.email %></td>
             <td><%= link_to 'See grades', s %></td>
+            <%= link_to "Change your password", edit_parent_path(session[:user_id]) %>
+
           </tr>
         <% end %>
       </tbody>
