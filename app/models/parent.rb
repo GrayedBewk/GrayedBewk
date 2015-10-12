@@ -3,4 +3,5 @@ class Parent < ActiveRecord::Base
   validates :name, :email, :password, presence: true
   validates :email, uniqueness: true
   has_one :student
+  accepts_nested_attributes_for :student
 end

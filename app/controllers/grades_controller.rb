@@ -10,7 +10,6 @@ class GradesController < ApplicationController
   # GET /grades/1
   # GET /grades/1.json
   def show
-    @student = Student.find_by(params[:id])
   end
 
   # GET /grades/new
