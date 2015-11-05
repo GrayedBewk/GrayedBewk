@@ -5,6 +5,7 @@ class ParentsController < ApplicationController
   def index
     @parents = Parent.all
     @parent = Parent.find(session[:user_id])
+    
   end
 
   # GET /parents/1
